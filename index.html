@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Brechas educacionales reflejadas en el proceso de selección universitaria desde la enseñanza media</title>
+		<link rel=StyleSheet href="style.css" type="text/css" media=screen>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700" rel="stylesheet">
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1><span class="bold">Brechas educacionales</span> reflejadas en el <span class="bold">proceso de selección universitaria</span> desde la enseñanza media</h1>
+			</div>
+		</header>
+		<div class="container-pre">
+			<div class="container">
+				<p class="text-main">¿Cómo representar las brechas educacionales por tipo de dependencia
+					<span class="type type-1">municipal</span>
+					<span class="type type-2">subvencionado</span>
+					<span class="type type-3">particular</span> reflejada en el puntaje promedio de la PSU Lenguaje y Comunicación y Matemática ante el comportamiento de quienes <strong>rinden, postulan, son seleccionados y se matriculan</strong> a las universidades dutrante los últimos 14 años?</p>
+			</div>
+		</div>
+		<div class="container">
+			<h6 class="inline-block">Simbología:</h6>
+			<span class="type type-1">municipal</span>
+			<span class="type type-2">subvencionado</span>
+			<span class="type type-3">particular</span>
+			<div class="container-resume">
+				<img src="img/img-data-resume.png" />
+			</div>
+			<div class="agroup">
+				<a class="active" href="#">2004</a>
+				<a href="#">2005</a>
+				<a href="#">2006</a>
+				<a href="#">2007</a>
+				<a href="#">2008</a>
+				<a href="#">2009</a>
+				<a href="#">2010</a>
+				<a href="#">2011</a>
+				<a href="#">2012</a>
+				<a href="#">2013</a>
+				<a href="#">2014</a>
+				<a href="#">2015</a>
+				<a href="#">2016</a>
+			</div><!--agroup-->
+			<h2>2004</h2>
+			<div class="graphics">
+				<div class="container-graphics">
+					<h4>Resultados PSU por tipo de dependencia de establecimiento educacional</h4>
+					<img src="img/img-2004.png" title="resultados psu 2004"/>
+				</div>
+				<div class="container-graphics">
+					<h4>Proceso de selección <br>hasta la matrícula</h4>
+					<div id="sankey_basic" style="width: 100%; height: 300px;"></div>
+				</div>
+			</div>
+			<script>
+			google.charts.load('current', {'packages':['sankey']});
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'From');
+				data.addColumn('string', 'To');
+				data.addColumn('number', 'Total');
+				data.addRows([
+					[ 'PARTICULARES', 'RINDEN', 23852 ],
+					[ 'PARTICULARES', 'POSTULAN', 13025 ],
+					[ 'PARTICULARES', 'SELECCIONADOS', 10477 ],
+					[ 'PARTICULARES', 'MATRICULADOS', 8297 ],
+					[ 'SUBVENCIONADO', 'RINDEN', 62969 ],
+					[ 'SUBVENCIONADO', 'POSTULAN', 27651 ],
+					[ 'SUBVENCIONADO', 'SELECCIONADOS', 21431 ],
+					[ 'SUBVENCIONADO', 'MATRICULADOS', 17475 ],
+					[ 'MUNICIPAL', 'RINDEN', 65500 ],
+					[ 'MUNICIPAL', 'POSTULAN', 26271 ],
+					[ 'MUNICIPAL', 'SELECCIONADOS', 20523 ],
+					[ 'MUNICIPAL', 'MATRICULADOS', 17010 ]
+					]);
+
+					// Sets chart options.
+					var options = {width: 528,};
+					
+					// Instantiates and draws our chart, passing in some options.
+					var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+					chart.draw(data, options);
+				}
+			</script>
+		</div><!--container-->
+		<footer>
+			<p>Jaime Pérez Moena - <strong>Diplomado de Visualización de datos</strong></p>
+		</footer>
+	</body>
+</html>
